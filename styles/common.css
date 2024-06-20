@@ -5,4 +5,26 @@ body{
 margin-left: auto;
 margin-right: auto;
 display: block;
+margin-top: 5rem;
+}
+
+.navbar img {
+    height: 100px;
+    width: 150px;
+    padding-left: 1rem;
+}
+
+.hamburger {
+    display: flex;
+    gap: 2rem;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: antiquewhite;
+}
+.navbar{
+    background-color: steelblue;
 }
