@@ -36,3 +36,8 @@ a {
     margin-left: auto;
     margin-right: auto;
 }
+.todoList{
+    margin-top: 5rem;
+    display: block;
+    text-align: center;
+}
