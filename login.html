@@ -29,16 +29,31 @@
             <a href="todos.html">TO DO LIST</a>
             <a href="new_todo.html">UPDATE</a>
         </div>
-        <a href="login.html">LOGIN</a>
+        <a href="login.html">User Key</a>
 
     </nav>
     <fieldset id="fieldset" class="fieldset">
-        <legend>User Information KEY</legend>
-        <span>ID: </span><input type="text" id="idElement" placeholder="type in ID">
-        <span>Name: </span><input type="text" id="nameElement" placeholder="First and Last name">
+        <legend>User Information KEY:</legend>
+        <h2>Name: <span id="nameElement"></span></h2>
+
 
     </fieldset>
 
-
+    <script>
+                let nameElement = document.getElementById("nameElement");
+                let IdElement = document.getElementById("IdElement")
+        fetch("http://localhost:8083/api/users")
+            .then(response => response.json())
+            .then(data => {
+                for(let i = 0; i < data.length; i++){
+                    let name = data.map(user => `
+                    <div>${user.name}</div>
+                    <div>${user.id}</div>
+                    `).join('');
+                    
+                    nameElement.innerHTML = name
+                }
+                }).join('')
+    </script>
 </body>
 </html>
