@@ -34,7 +34,7 @@
     </nav>
     <fieldset id="fieldset" class="fieldset">
         <legend>User Information KEY:</legend>
-        <h2>Name: <span id="nameElement"></span></h2>
+        <h2>Name:<br> <span id="nameElement"></span></h2>
 
 
     </fieldset>
@@ -47,8 +47,8 @@
             .then(data => {
                 for(let i = 0; i < data.length; i++){
                     let name = data.map(user => `
-                    <div>${user.name}</div>
-                    <div>${user.id}</div>
+                    <span>${user.name}</span>
+                    <span>${user.id}</span><br>
                     `).join('');
                     
                     nameElement.innerHTML = name
