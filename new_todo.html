@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/new_todo.css">
     <title>New To Do</title>
 </head>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="todos.html">To Do</a>
+    <a href="new_todo.html">New To Do</a>
+</nav>
+
 <body>
     <select id="todo" class="todo">
         <option id="toElement" class="toElement">
             New To Do
         </option>
     </select>
+    <select id="category"><option>Select a Category</option></select> <br>
+    <input type="Text" id="todoDescription" placeholder="To Do Description"> <br>
+    Deadline:
+    <input type="date" id="tododeadline"> <br>
+    <select id="priority">
+        <option>Select a Priority </option>
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select> <br>
+    <input type="checkbox" id="completed">Completed <br>
+<button>Save</button>
 </body>
+<script>
+async function getcats() {
+  const response = await fetch("http://localhost:8083/api/categories");
+  const cats = await response.json();
+  console.log(cats);
+  category.innerHTML+=cats.map(c=>`<option>${c.name}</option>`).join("")
+}
+getcats()
+</script>
 </html>
