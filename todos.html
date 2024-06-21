@@ -55,16 +55,33 @@
             <i class="fa fa-bars"></i>
         </a>
     </nav>
-    
-        <img src="./images/check.jfif" alt="checkbox" id="checkbox">
-    
-    <select id="todos" class="todos">
-        <option id="todoElement" class="todoElement">
-            TO DO LIST
-        </option>
+
+    <img src="./images/check.jfif" alt="checkbox" id="checkbox">
+
+    <div class="todoList" id="todoList">
+        <p class="todoElement" id="todoElement"></p>
+    </div>
     </select>
     <script>
 
+        let todoElement = document.getElementById("todoElement");
+        fetch("http://localhost:8083/api/todos")
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    let todoItem = document.createElement('div');
+                    todoItem.innerHTML = `
+                <div>
+                    <p>Category: ${item.category}</p>   
+                    <p>Description: ${item.description}</p>   
+                    <p>Deadline: ${item.deadline}</p>   
+                    <p>Priority: ${item.priority}</p>   
+                    <p>Completed: ${item.completed}</p>   
+                </div>
+                            `;
+                    todoElement.appendChild(todoItem);
+                });
+            })
     </script>
 
 </body>
