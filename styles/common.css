@@ -28,3 +28,11 @@ a {
 .navbar{
     background-color: steelblue;
 }
+#checkbox{
+    max-width: 100%;
+    height: 150px;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
